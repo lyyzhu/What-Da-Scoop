@@ -1,0 +1,371 @@
+"""
+This program helps the user convert their baking measurements
+from the following in one easy-to-view space:
+
+- teaspoon      - gallon    - liter
+- tablespoon    - quart     - milliliter
+- cup           - ounce
+
+Normally, with online conversion calculators, you're only
+limited to 2 types of measurements (1 input => 1 output).
+This baking measurement calculator has 1 input => 7 outputs.
+"""
+
+def main():
+    # intro
+    print("Hi there! Due to Shelter-In-Place, people are baking A LOT.")
+    print("We'll take a gamble but it's at least 500% more than before!")
+    print("This program helps you convert U.S. baking/cooking measurements up to 3 decimal places accuracy!")
+    print("With that said, WELCOME TO...")
+    print("")
+    print("*           *  *     *    * *   * * * * *       * * *      * *           * * * *   * * *   * * *    * * *   * * * *  * *")
+    print(" *         *   *     *   *   *      *           *    *    *   *          *        *       *     *  *     *  *     *  * *")
+    print("  *   *   *    * * * *  * * * *     *     ***   *     *  * * * *   ***   * * * *  *       *     *  *     *  * * * *  * *")
+    print("   * * * *     *     *  *     *     *           *    *   *     *               *  *       *     *  *     *  *           ")
+    print("    *   *      *     *  *     *     *           * * *    *     *         * * * *   * * *   * * *    * * *   *        * *")
+    print("")
+    # get choice from the user
+    get_choice()
+
+# how to get choice input from user
+def get_choice():
+    print("What would you like to convert?")
+    print("1. Teaspoon (tsp)            5. Quart (qt)")
+    print("2. Tablespoon (tbsp)         6. Gallon (gal)")
+    print("3. Cup                       7. Milliliter (mL)")
+    print("4. Ounce (oz)                8. Liter (L)")
+    option = float(input("Your choice (press '0' to exit program): "))
+
+    # based on the choice of user, call appropriate function
+    # if user inputs invalid option, print appropriate response
+    while True:
+        if option == 1:
+            convert_tsp()
+        elif option == 2:
+            convert_tbs()
+        elif option == 3:
+            convert_cup()
+        elif option == 4:
+            convert_ozs()
+        elif option == 5:
+            convert_qts()
+        elif option == 6:
+            convert_gal()
+        elif option == 7:
+            convert_ml()
+        elif option == 8:
+            convert_l()
+        elif option == 0:
+            print("The program has ended. Goodbye!")
+            # ends program
+            quit()
+        else:
+            # response when user input isn't integer 1-8
+            option = float(input('INVALID. Please select 1-8: '))
+
+
+"""
+"{:.3f}". used to limit calculated outputs to just 3 decimal places.
+Most measuring balances have a .XXX accuracy at maximum.
+"""
+
+
+# teaspoon conversion
+def convert_tsp():
+    # get the teaspoon from the user
+    teaspoon = float(input("Enter # of tsp(s): "))
+    # formula to calculate teaspoon to tablespoon
+    tablespoon = teaspoon / 3
+    tablespoon = "{:.3f}".format(tablespoon)
+    # formula to calculate teaspoon to cup
+    cup = teaspoon / 48
+    cup = "{:.3f}".format(cup)
+    # formula to calculate teaspoon to ounces
+    ounce = teaspoon / 6
+    ounce = "{:.3f}".format(ounce)
+    # formula to calculate teaspoon to quarts
+    quart = teaspoon / 192
+    quart = "{:.3f}".format(quart)
+    # formula to calculate teaspoon to gallons
+    gallon = teaspoon / 768
+    gallon = "{:.3f}".format(gallon)
+    # formula to calculate teaspoon to milliliters
+    milliliter = teaspoon * 4.929
+    milliliter = "{:.3f}".format(milliliter)
+    # formula to calculate teaspoon to liters
+    liter = teaspoon / 203
+    liter = "{:.3f}".format(liter)
+    # output conversion
+    print(str(teaspoon), "tsp(s) equals... ")
+    print(str(tablespoon), "tbsp(s)")
+    print(str(cup), "cup(s)")
+    print(str(ounce), "oz(s)")
+    print(str(quart), "qt(s)")
+    print(str(gallon), "gal(s)")
+    print(str(milliliter), "mL(s)")
+    print(str(liter), "L(s)")
+    print("")
+    get_choice()
+
+# tablespoon conversion
+def convert_tbs():
+    # get the tablespoon from the user
+    tablespoon = float(input("Enter # of tbsp(s): "))
+    # formula to calculate tablespoon to teaspoon
+    teaspoon = tablespoon * 3
+    teaspoon = "{:.3f}".format(teaspoon)
+    # formula to calculate tablespoon to cup
+    cup = tablespoon / 16
+    cup = "{:.3f}".format(cup)
+    # formula to calculate tablespoon to ounces
+    ounce = tablespoon / 2
+    ounce = "{:.3f}".format(ounce)
+    # formula to calculate tablespoon to quarts
+    quart = tablespoon / 64
+    quart = "{:.3f}".format(quart)
+    # formula to calculate tablespoon to gallons
+    gallon = tablespoon / 256
+    gallon = "{:.3f}".format(gallon)
+    # formula to calculate tablespoon to milliliters
+    milliliter = tablespoon * 14.787
+    milliliter = "{:.3f}".format(milliliter)
+    # formula to calculate tablespoon to liters
+    liter = tablespoon / 67.628
+    liter = "{:.3f}".format(liter)
+    # output conversion
+    print(str(tablespoon), "tbsp(s) equals... ")
+    print(str(teaspoon), "tsp(s)")
+    print(str(cup), "cup(s)")
+    print(str(ounce), "oz(s)")
+    print(str(quart), "qt(s)")
+    print(str(gallon), "gal(s)")
+    print(str(milliliter), "mL(s)")
+    print(str(liter), "L(s)")
+    print("")
+    get_choice()
+
+# cup conversion
+def convert_cup():
+    # get the cup from the user
+    cup = float(input("Enter # of cup(s): "))
+    # formula to calculate cup to teaspoon
+    teaspoon = cup * 48
+    teaspoon = "{:.3f}".format(teaspoon)
+    # formula to calculate cup to tablespoon
+    tablespoon = cup * 16
+    tablespoon = "{:.3f}".format(tablespoon)
+    # formula to calculate cup to ounces
+    ounce = cup * 8.115
+    ounce = "{:.3f}".format(ounce)
+    # formula to calculate cup to quarts
+    quart = cup / 3.943
+    quart = "{:.3f}".format(quart)
+    # formula to calculate cup to gallons
+    gallon = cup / 15.773
+    gallon = "{:.3f}".format(gallon)
+    # formula to calculate cup to milliliters
+    milliliter = cup * 240
+    milliliter = "{:.3f}".format(milliliter)
+    # formula to calculate cup to liters
+    liter = cup / 4.167
+    liter = "{:.3f}".format(liter)
+    # output conversion
+    print(str(cup), "cup(s) equals... ")
+    print(str(teaspoon), "tsp(s)")
+    print(str(tablespoon), "tbsp(s)")
+    print(str(ounce), "oz(s)")
+    print(str(quart), "qt(s)")
+    print(str(gallon), "gal(s)")
+    print(str(milliliter), "mL(s)")
+    print(str(liter), "L(s)")
+    print("")
+    get_choice()
+
+# ounce conversion
+def convert_ozs():
+    # get the ounce from the user
+    ounce = float(input("Enter # of oz(s): "))
+    # formula to calculate ounce to teaspoon
+    teaspoon = ounce * 6
+    teaspoon = "{:.3f}".format(teaspoon)
+    # formula to calculate ounce to tablespoon
+    tablespoon = ounce * 2
+    tablespoon = "{:.3f}".format(tablespoon)
+    # formula to calculate ounce to cups
+    cup = ounce / 8.115
+    cup = "{:.3f}".format(cup)
+    # formula to calculate ounce to quarts
+    quart = ounce / 32
+    quart = "{:.3f}".format(quart)
+    # formula to calculate ounce to gallons
+    gallon = ounce / 128
+    gallon = "{:.3f}".format(gallon)
+    # formula to calculate ounce to milliliters
+    milliliter = ounce * 29.574
+    milliliter = "{:.3f}".format(milliliter)
+    # formula to calculate ounce to liters
+    liter = ounce / 33.814
+    liter = "{:.3f}".format(liter)
+    # output conversion
+    print(str(ounce), "oz(s) equals... ")
+    print(str(teaspoon), "tsp(s)")
+    print(str(tablespoon), "tbsp(s)")
+    print(str(cup), "cup(s)")
+    print(str(quart), "qt(s)")
+    print(str(gallon), "gal(s)")
+    print(str(milliliter), "mL(s)")
+    print(str(liter), "L(s)")
+    print("")
+    get_choice()
+
+# quart conversion
+def convert_qts():
+    # get the quart from the user
+    quart = float(input("Enter # of qt(s): "))
+    # formula to calculate quart to teaspoon
+    teaspoon = quart * 192
+    teaspoon = "{:.3f}".format(teaspoon)
+    # formula to calculate quart to tablespoon
+    tablespoon = quart * 64
+    tablespoon = "{:.3f}".format(tablespoon)
+    # formula to calculate quart to cups
+    cup = quart * 3.943
+    cup = "{:.3f}".format(cup)
+    # formula to calculate quart to ounces
+    ounce = quart * 32
+    ounce = "{:.3f}".format(ounce)
+    # formula to calculate quart to gallons
+    gallon = quart / 4
+    gallon = "{:.3f}".format(gallon)
+    # formula to calculate quart to milliliters
+    milliliter = quart * 946
+    milliliter = "{:.3f}".format(milliliter)
+    # formula to calculate quart to liters
+    liter = quart / 1.057
+    liter = "{:.3f}".format(liter)
+    # output conversion
+    print(str(quart), "qt(s) equals... ")
+    print(str(teaspoon), "tsp(s)")
+    print(str(tablespoon), "tbsp(s)")
+    print(str(cup), "cup(s)")
+    print(str(ounce), "oz(s)")
+    print(str(gallon), "gal(s)")
+    print(str(milliliter), "mL(s)")
+    print(str(liter), "L(s)")
+    print("")
+    get_choice()
+
+# gallon conversion
+def convert_gal():
+    # get the gallon from the user
+    gallon = float(input("Enter # of gal(s): "))
+    # formula to calculate gallon to teaspoon
+    teaspoon = gallon * 768
+    teaspoon = "{:.3f}".format(teaspoon)
+    # formula to calculate gallon to tablespoon
+    tablespoon = gallon * 256
+    tablespoon = "{:.3f}".format(tablespoon)
+    # formula to calculate gallon to cups
+    cup = gallon * 15.773
+    cup = "{:.3f}".format(cup)
+    # formula to calculate gallon to ounce
+    ounce = gallon * 128
+    ounce = "{:.3f}".format(ounce)
+    # formula to calculate gallon to quart
+    quart = gallon * 4
+    quart = "{:.3f}".format(quart)
+    # formula to calculate gallon to milliliters
+    milliliter = gallon * 3785
+    milliliter = "{:.3f}".format(milliliter)
+    # formula to calculate gallon to liters
+    liter = gallon * 3.785
+    liter = "{:.3f}".format(liter)
+    # output conversion
+    print(str(gallon), "gal(s) equals... ")
+    print(str(teaspoon), "tsp(s)")
+    print(str(tablespoon), "tbsp(s)")
+    print(str(cup), "cup(s)")
+    print(str(ounce), "oz(s)")
+    print(str(quart), "qt(s)")
+    print(str(milliliter), "mL(s)")
+    print(str(liter), "L(s)")
+    print("")
+    get_choice()
+
+# milliliter conversion
+def convert_ml():
+    # get the milliliter from the user
+    milliliter = float(input("Enter # of mL(s): "))
+    # formula to calculate milliliter to teaspoon
+    teaspoon = milliliter / 4.929
+    teaspoon = "{:.3f}".format(teaspoon)
+    # formula to calculate milliliter to tablespoon
+    tablespoon = milliliter / 14.787
+    tablespoon = "{:.3f}".format(tablespoon)
+    # formula to calculate milliliter to cups
+    cup = milliliter / 240
+    cup = "{:.3f}".format(cup)
+    # formula to calculate milliliter to ounces
+    ounce = milliliter / 29.574
+    ounce = "{:.3f}".format(ounce)
+    # formula to calculate milliliter to quarts
+    quart = milliliter / 946
+    quart = "{:.3f}".format(quart)
+    # formula to calculate milliliter to gallons
+    gallon = milliliter / 3785
+    gallon = "{:.3f}".format(gallon)
+    # formula to calculate milliliter to liters
+    liter = milliliter / 1000
+    liter = "{:.3f}".format(liter)
+    # output milliliter
+    print(str(milliliter), "mL(s) equals... ")
+    print(str(teaspoon), "tsp(s)")
+    print(str(tablespoon), "tbsp(s)")
+    print(str(cup), "cup(s)")
+    print(str(ounce), "oz(s)")
+    print(str(quart), "qt(s)")
+    print(str(gallon), "gal(s)")
+    print(str(liter), "L(s)")
+    print("")
+    get_choice()
+
+# liter conversion
+def convert_l():
+    # get the liter from the user
+    liter = float(input("Enter # of L(s): "))
+    # formula to calculate liter to teaspoon
+    teaspoon = liter * 203
+    teaspoon = "{:.3f}".format(teaspoon)
+    # formula to calculate liter to tablespoon
+    tablespoon = liter * 67.628
+    tablespoon = "{:.3f}".format(tablespoon)
+    # formula to calculate liter to cups
+    cup = liter * 4.167
+    cup = "{:.3f}".format(cup)
+    # formula to calculate liter to ounces
+    ounce = liter * 33.814
+    ounce = "{:.3f}".format(ounce)
+    # formula to calculate liter to quarts
+    quart = liter * 1.057
+    quart = "{:.3f}".format(quart)
+    # formula to calculate liter to gallon
+    gallon = liter / 3.785
+    gallon = "{:.3f}".format(gallon)
+    # formula to calculate liter to litmilliliterers
+    milliliter = liter * 1000
+    milliliter = "{:.3f}".format(milliliter)
+    # output liter
+    print(str(liter), "L(s) equals... ")
+    print(str(teaspoon), "tsp(s)")
+    print(str(tablespoon), "tbsp(s)")
+    print(str(cup), "cup(s)")
+    print(str(ounce), "oz(s)")
+    print(str(quart), "qt(s)")
+    print(str(gallon), "gal(s)")
+    print(str(milliliter), "mL(s)")
+    print("")
+    get_choice()
+
+
+if __name__ == '__main__':
+    main()
